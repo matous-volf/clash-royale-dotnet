@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Title>ClashRoyale.Net</Title>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<SignAssembly>False</SignAssembly>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageId>ClashRoyale.Net</PackageId>
+		<Authors>matous_volf</Authors>
+		<PackageProjectUrl>https://github.com/matousvolf/clash-royale-dotnet</PackageProjectUrl>
+		<Description>An unofficial .NET wrapper for Supercell's Clash Royale API.</Description>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryUrl>https://github.com/matousvolf/clash-royale-dotnet.git</RepositoryUrl>
+		<PackageReleaseNotes>The initial release.</PackageReleaseNotes>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageTags>clashroyale.net; clashroyaledotnet; clashroyaleapi; clash; royale; clashroyale; cr; supercell; api; wrapper; royaleapi; dot; net; dotnet; .net; csharp; unofficial</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Product>ClashRoyale.Net</Product>
+		<NeutralLanguage>en-US</NeutralLanguage>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="icon.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Update="README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+</Project>
