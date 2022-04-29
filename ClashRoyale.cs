@@ -7,7 +7,7 @@ namespace ClashRoyaleAPI
     /// <summary>
     /// Provides access to all the Clash Royale API methods and settings.
     /// </summary>
-    static class ClashRoyale
+    public static class ClashRoyale
     {
         private static string key;
         /// <summary>

@@ -12,13 +12,14 @@
 		<PackageProjectUrl>https://github.com/matousvolf/clash-royale-dotnet</PackageProjectUrl>
 		<Description>An unofficial .NET wrapper for Supercell's Clash Royale API.</Description>
 		<RepositoryUrl>https://github.com/matousvolf/clash-royale-dotnet.git</RepositoryUrl>
-		<PackageReleaseNotes>The initial release.</PackageReleaseNotes>
+		<PackageReleaseNotes>Made the ClashRoyale class public.</PackageReleaseNotes>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageTags>clashroyaledotnet; clashroyale.net; clashroyaleapi; clash; royale; clashroyale; cr; supercell; api; wrapper; royaleapi; dot; net; dotnet; .net; csharp; unofficial</PackageTags>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Product>ClashRoyaleDotNet</Product>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<PackageIcon>icon.png</PackageIcon>
+		<Version>$(VersionPrefix)1.0.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
