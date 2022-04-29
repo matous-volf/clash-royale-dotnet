@@ -19,7 +19,7 @@
 		<Product>ClashRoyaleDotNet</Product>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<PackageIcon>icon.png</PackageIcon>
-		<Version>$(VersionPrefix)1.0.1</Version>
+		<Version>$(VersionPrefix)1.0.2</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
