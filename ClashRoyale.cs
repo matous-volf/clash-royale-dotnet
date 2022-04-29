@@ -13,7 +13,8 @@ namespace ClashRoyaleAPI
         /// <summary>
         /// Gets or sets the API key used for obtaining the Clash Royale information.
         /// </summary>
-        public static string Key {
+        public static string Key
+        {
             get => key;
             set
             {
@@ -81,25 +82,21 @@ namespace ClashRoyaleAPI
 
         private static string GetData(string url)
         {
-            try
-            {
-                HttpResponseMessage response = httpClient.Send(new HttpRequestMessage(HttpMethod.Get, url));
-                StreamReader streamReader = new(response.Content.ReadAsStream());
-                string data = streamReader.ReadToEnd();
+            HttpResponseMessage response = httpClient.Send(new HttpRequestMessage(HttpMethod.Get, url));
+            StreamReader streamReader = new(response.Content.ReadAsStream());
+            string data = streamReader.ReadToEnd();
 
-                return data;
-            }
-            catch (WebException e)
+            if (response.StatusCode == HttpStatusCode.Forbidden)
             {
-                if (e.Response is not null && ((HttpWebResponse)e.Response).StatusCode == HttpStatusCode.Forbidden)
-                {
-                    throw new InvalidKeyException();
-                }
-                else
-                {
-                    return null;
-                }
+                throw new InvalidKeyException();
             }
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                return null;
+            }
+
+            return data;
         }
 
         internal static DateTime? GetDateTimeFromJson(dynamic json)
@@ -309,7 +306,7 @@ namespace ClashRoyaleAPI
 
             if (maxMembers < 0)
             {
-                throw new ArgumentOutOfRangeException(nameof(maxMembers),  "The Clan's maximum member count must be greater than or equal to 0.");
+                throw new ArgumentOutOfRangeException(nameof(maxMembers), "The Clan's maximum member count must be greater than or equal to 0.");
             }
 
             if (maxMembers > 50)
