@@ -136,18 +136,12 @@ namespace ClashRoyaleAPI
 
             for (int i = 0; i < json.Count; i++)
             {
-                if (typeof(T) == typeof(Clan))
-                {
-                    objects[i] = GetClanByTag(json[i].tag.ToString());
-                }
-                else
-                {
-                    objects[i] = (T)Activator.CreateInstance(typeof(T),
-                        System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance,
-                        null,
-                        new object[] { json[i] },
-                        null);
-                }
+
+                objects[i] = (T)Activator.CreateInstance(typeof(T),
+                    System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance,
+                    null,
+                    new object[] { json[i] },
+                    null);
             }
 
             return objects;
@@ -259,7 +253,7 @@ namespace ClashRoyaleAPI
         /// <returns>
         /// An array of the Clan objects found, or null if no Clans with the properties exist.
         /// </returns>
-        public static Clan[] GetClansBySearch(string name = null, int locationID = 0, int minMembers = 0, int maxMembers = 50, int minScore = 0)
+        public static SearchResultClan[] GetClansBySearch(string name = null, int locationID = 0, int minMembers = 0, int maxMembers = 50, int minScore = 0)
         {
             string url = clansSearchBaseURL;
 
@@ -327,7 +321,7 @@ namespace ClashRoyaleAPI
             }
             dynamic clansObject = JObject.Parse(clansData);
 
-            return ClashRoyale.GetObjectsFromJson<Clan>(clansObject.items);
+            return ClashRoyale.GetObjectsFromJson<SearchResultClan>(clansObject.items);
         }
 
         /// <summary>
