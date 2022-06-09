@@ -12,14 +12,14 @@
 		<PackageProjectUrl>https://github.com/matousvolf/clash-royale-dotnet</PackageProjectUrl>
 		<Description>An unofficial .NET wrapper for Supercell's Clash Royale API.</Description>
 		<RepositoryUrl>https://github.com/matousvolf/clash-royale-dotnet.git</RepositoryUrl>
-		<PackageReleaseNotes>Fixed the thorwing of the InvalidKeyException.</PackageReleaseNotes>
+		<PackageReleaseNotes>Fixed summary IDE visibility. Exceptions in IDE are now visible from the outside of the package.</PackageReleaseNotes>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageTags>clashroyaledotnet; clashroyale.net; clashroyaleapi; clash; royale; clashroyale; cr; supercell; api; wrapper; royaleapi; dot; net; dotnet; .net; csharp; unofficial</PackageTags>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Product>ClashRoyaleDotNet</Product>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<PackageIcon>icon.png</PackageIcon>
-		<Version>$(VersionPrefix)1.0.2</Version>
+		<Version>$(VersionPrefix)1.0.3</Version>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
