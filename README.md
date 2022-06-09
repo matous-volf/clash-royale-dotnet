@@ -43,8 +43,6 @@ To get information about Clans searched by their properties, use the `GetClansBy
 Clan[] clans = ClashRoyale.GetClansBySearch(name: "HMaK", locationID: 57000070, minMembers: 35, maxMembers: 45, minScore: 30000);
 ```
 
-*Although in the official API it is divided into different requests, this information also contains the Clan's current and previous River races.*
-
 ### Card information
 To get information about all Cards, use the `GetAllCards` method:
 ```cs
@@ -58,7 +56,7 @@ ChallengeChain[] challengeChains = ClashRoyale.GetCurrentChallenges();
 ```
 
 ## API coverage
-The [latest realease](https://github.com/matousvolf/clash-royale-dotnet/releases/tag/v1.0.3) covers these parts of the official API:
+The [latest realease](https://github.com/matousvolf/clash-royale-dotnet/releases/tag/v2.0.0) covers these parts of the official API:
 - players
 - Clans
 - Cards
