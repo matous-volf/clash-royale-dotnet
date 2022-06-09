@@ -82,21 +82,28 @@ namespace ClashRoyaleAPI
 
         private static string GetData(string url)
         {
-            HttpResponseMessage response = httpClient.Send(new HttpRequestMessage(HttpMethod.Get, url));
-            StreamReader streamReader = new(response.Content.ReadAsStream());
-            string data = streamReader.ReadToEnd();
-
-            if (response.StatusCode == HttpStatusCode.Forbidden)
+            try
             {
-                throw new InvalidKeyException();
-            }
+                HttpResponseMessage response = httpClient.Send(new HttpRequestMessage(HttpMethod.Get, url));
+                StreamReader streamReader = new(response.Content.ReadAsStream());
+                string data = streamReader.ReadToEnd();
 
-            if (response.StatusCode != HttpStatusCode.OK)
+                if (response.StatusCode == HttpStatusCode.Forbidden)
+                {
+                    throw new InvalidKeyException();
+                }
+
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    return null;
+                }
+
+                return data;
+            }
+            catch
             {
-                return null;
+                throw;
             }
-
-            return data;
         }
 
         internal static DateTime? GetDateTimeFromJson(dynamic json)
@@ -261,73 +268,80 @@ namespace ClashRoyaleAPI
         /// </returns>
         public static Clan[] GetClansBySearch(string name = null, int locationID = 0, int minMembers = 0, int maxMembers = 50, int minScore = 0)
         {
-            string url = clansSearchBaseURL;
+            try
+            {
+                string url = clansSearchBaseURL;
 
-            if (name is not null)
-            {
-                url += "name=" + name + "&";
-            }
-            if (locationID != 0)
-            {
-                url += "locationId=" + locationID + "&";
-            }
-            if (minMembers != 0)
-            {
-                url += "minMembers=" + minMembers + "&";
-            }
-            if (maxMembers != 50)
-            {
-                url += "maxMembers=" + maxMembers + "&";
-            }
-            if (minScore != 0)
-            {
-                url += "minScore=" + minScore + "&";
-            }
+                if (name is not null)
+                {
+                    url += "name=" + name + "&";
+                }
+                if (locationID != 0)
+                {
+                    url += "locationId=" + locationID + "&";
+                }
+                if (minMembers != 0)
+                {
+                    url += "minMembers=" + minMembers + "&";
+                }
+                if (maxMembers != 50)
+                {
+                    url += "maxMembers=" + maxMembers + "&";
+                }
+                if (minScore != 0)
+                {
+                    url += "minScore=" + minScore + "&";
+                }
 
-            if (url == clansSearchBaseURL)
-            {
-                throw new ArgumentException("At least 1 Clan property must be specified.");
+                if (url == clansSearchBaseURL)
+                {
+                    throw new ArgumentException("At least 1 Clan property must be specified.");
+                }
+
+                if (name.Length < 3)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(name), "The Clan's name must be at least 3 characters long.");
+                }
+
+                if (minMembers < 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(minMembers), "The Clan's minimum member count must be greater than or equal to 0.");
+                }
+
+                if (minMembers > 50)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(minMembers), "The Clan's minimum member count must be lower than or equal to 50.");
+                }
+
+                if (maxMembers < 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(maxMembers), "The Clan's maximum member count must be greater than or equal to 0.");
+                }
+
+                if (maxMembers > 50)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(maxMembers), "The Clan's maximum member count must be lower than or equal to 50.");
+                }
+
+                if (minScore < 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(minScore), "The Clan's minimum score must be greater than or equal to 0.");
+                }
+
+                string clansData = GetData(url);
+
+                if (clansData is null)
+                {
+                    return null;
+                }
+                dynamic clansObject = JObject.Parse(clansData);
+
+                return ClashRoyale.GetObjectsFromJson<Clan>(clansObject.items);
             }
-
-            if (name.Length < 3)
+            catch
             {
-                throw new ArgumentOutOfRangeException(nameof(name), "The Clan's name must be at least 3 characters long.");
+                throw;
             }
-
-            if (minMembers < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(minMembers), "The Clan's minimum member count must be greater than or equal to 0.");
-            }
-
-            if (minMembers > 50)
-            {
-                throw new ArgumentOutOfRangeException(nameof(minMembers), "The Clan's minimum member count must be lower than or equal to 50.");
-            }
-
-            if (maxMembers < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(maxMembers), "The Clan's maximum member count must be greater than or equal to 0.");
-            }
-
-            if (maxMembers > 50)
-            {
-                throw new ArgumentOutOfRangeException(nameof(maxMembers), "The Clan's maximum member count must be lower than or equal to 50.");
-            }
-
-            if (minScore < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(minScore), "The Clan's minimum score must be greater than or equal to 0.");
-            }
-
-            string clansData = GetData(url);
-
-            if (clansData is null)
-            {
-                return null;
-            }
-            dynamic clansObject = JObject.Parse(clansData);
-
-            return ClashRoyale.GetObjectsFromJson<Clan>(clansObject.items);
         }
 
         /// <summary>
