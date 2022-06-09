@@ -57,7 +57,7 @@ ChallengeChain[] challengeChains = ClashRoyale.GetCurrentChallenges();
 ```
 
 ## API coverage
-The [latest realease](https://github.com/matousvolf/clash-royale-dotnet/releases/tag/v2.0.0) covers these parts of the official API:
+The [latest realease](https://github.com/matousvolf/clash-royale-dotnet/releases/latest) covers these parts of the official API:
 - players
 - Clans
 - Cards
