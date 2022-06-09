@@ -36,11 +36,12 @@ To get information about a particular Clan, use the `GetClanByTag` method:
 ```cs
 Clan clan = ClashRoyale.GetClanByTag(tag: "#L2QCY2VC");
 ```
+*Although in the official API it is divided into different requests, this information also contains the Clan's current and previous River races.*
 
 #### By properties
 To get information about Clans searched by their properties, use the `GetClansBySearch` method:
 ```cs
-Clan[] clans = ClashRoyale.GetClansBySearch(name: "HMaK", locationID: 57000070, minMembers: 35, maxMembers: 45, minScore: 30000);
+SearchResultClan[] clans = ClashRoyale.GetClansBySearch(name: "HMaK", locationID: 57000070, minMembers: 35, maxMembers: 45, minScore: 30000);
 ```
 
 ### Card information
