@@ -57,7 +57,7 @@ ChallengeChain[] challengeChains = ClashRoyale.GetCurrentChallenges();
 ```
 
 ## API coverage
-The [latest realease](https://github.com/matousvolf/clash-royale-dotnet/releases/latest) covers these parts of the official API:
+The [latest release](https://github.com/matousvolf/clash-royale-dotnet/releases/latest) covers these parts of the official API:
 - players
 - Clans
 - Cards
@@ -66,6 +66,13 @@ The [latest realease](https://github.com/matousvolf/clash-royale-dotnet/releases
 These parts are not covered yet:
 - Tournaments
 - locations
+
+## Known issues
+Below are currently known problems this package has:
+- Players' upcoming Chests don't include Royal Wild Chest. It seems Supercell only grants this information to [RoyaleAPI](https://royaleapi.com/).
+- Challenges returned from the `GetCurrentChallenges` method have invalid end times. This is caused by a bug in the official API.
+
+Due to the implementation in this package, both of these issues are going to be resolved the moment they get fixed in the official API.
 
 ## Contact
 If you encounter any bug or imperfection, please let me know by submitting an [issue](https://github.com/matousvolf/clash-royale-dotnet/issues).
