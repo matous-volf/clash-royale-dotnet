@@ -45,6 +45,9 @@
             DecksUsedToday = json.decksUsedToday;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the RiverRacePlayer class.
+        /// </summary>
         public RiverRacePlayer() { }
     }
 }

@@ -62,6 +62,9 @@
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the BattlePlayer class.
+        /// </summary>
         public BattlePlayer() { }
     }
 }

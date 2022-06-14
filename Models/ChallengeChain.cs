@@ -30,6 +30,9 @@
             EndTime = ClashRoyale.GetDateTimeFromJson(json.endTime);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the ChallengeChain class.
+        /// </summary>
         public ChallengeChain() { }
     }
 }

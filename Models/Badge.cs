@@ -40,6 +40,9 @@
             IconURL = json.iconUrls.large;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the Badge class.
+        /// </summary>
         public Badge() { }
     }
 }

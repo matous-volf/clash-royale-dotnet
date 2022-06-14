@@ -50,6 +50,9 @@
             EndOfDayRank = json.endOfDayRank;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the RiverRacePeriodLogEntry class.
+        /// </summary>
         public RiverRacePeriodLogEntry() { }
     }
 }

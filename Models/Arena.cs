@@ -20,6 +20,9 @@
             ID = json.id;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the Arena class.
+        /// </summary>
         public Arena() { }
     }
 }

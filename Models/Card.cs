@@ -30,6 +30,9 @@
             MaxLevel = json.maxLevel;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the Card class.
+        /// </summary>
         public Card() { }
     }
 }

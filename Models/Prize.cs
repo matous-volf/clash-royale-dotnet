@@ -50,6 +50,9 @@
             Wins = json.wins ?? 0;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the Prize class.
+        /// </summary>
         public Prize() { }
     }
 }

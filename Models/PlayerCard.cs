@@ -45,6 +45,9 @@
             Count = json.count;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the PlayerCard class.
+        /// </summary>
         public PlayerCard() { }
     }
 }

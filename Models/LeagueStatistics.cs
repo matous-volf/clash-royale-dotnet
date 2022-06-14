@@ -25,6 +25,9 @@
             BestSeason = json.bestSeason is not null ? new LeagueSeasonResult(json.bestSeason) : null;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the LeagueStatistics class.
+        /// </summary>
         public LeagueStatistics() { }
     }
 }

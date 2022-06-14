@@ -100,6 +100,9 @@
             BoatBattleRemainingTowers = json.remainingTowers is not null ? json.remainingTowers : 0;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the Battle class.
+        /// </summary>
         public Battle() { }
     }
 }

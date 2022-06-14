@@ -35,6 +35,9 @@
             Stars = json.stars;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the Achievment class.
+        /// </summary>
         public Achievement() { }
     }
 }

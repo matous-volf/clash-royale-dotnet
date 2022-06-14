@@ -20,6 +20,9 @@
             Index = json.index;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the Chest class.
+        /// </summary>
         public Chest() { }
     }
 }

@@ -25,6 +25,9 @@
             BadgeID = json.badgeId;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the PlayerClan class.
+        /// </summary>
         public PlayerClan() { }
     }
 }

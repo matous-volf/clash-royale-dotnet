@@ -30,6 +30,10 @@
             SectionIndex = json.sectionIndex;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the RiverRace class.
+        /// </summary>
+
         public RiverRace() { }
     }
 }

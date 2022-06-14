@@ -65,6 +65,9 @@
             DonationsReceived = json.donationsReceived;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the ClanMember class.
+        /// </summary>
         public ClanMember() { }
     }
 }

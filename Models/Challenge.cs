@@ -55,6 +55,9 @@
             IconURL = json.iconUrl;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the Challenge class.
+        /// </summary>
         public Challenge() { }
     }
 }

@@ -55,6 +55,9 @@
             Participants = ClashRoyale.GetObjectsFromJson<RiverRacePlayer>(json.participants);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the RiverRaceClan class.
+        /// </summary>
         public RiverRaceClan() { }
     }
 }

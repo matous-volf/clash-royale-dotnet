@@ -20,6 +20,9 @@
             ID = json.id;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the GameMode class.
+        /// </summary>
         public GameMode() { }
     }
 }

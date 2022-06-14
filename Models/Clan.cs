@@ -80,6 +80,9 @@
             RiverRaceLog = ClashRoyale.GetObjectsFromJson<RiverRace>(riverRaceLogJson);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the Clan class.
+        /// </summary>
         public Clan() { }
     }
 }

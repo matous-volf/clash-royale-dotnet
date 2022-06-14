@@ -30,6 +30,9 @@
             ID = json.id;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the LeagueSeasonResult class.
+        /// </summary>
         public LeagueSeasonResult() { }
     }
 }

@@ -25,6 +25,9 @@
             TrophyChange = json.trophyChange;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the RiverRaceStanding class.
+        /// </summary>
         public RiverRaceStanding() { }
     }
 }

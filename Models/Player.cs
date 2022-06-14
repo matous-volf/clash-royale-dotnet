@@ -162,6 +162,9 @@
             ClanCardsCollected = playerJson.clanCardsCollected;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the Player class.
+        /// </summary>
         public Player() { }
     }
 }

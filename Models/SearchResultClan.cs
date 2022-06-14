@@ -60,6 +60,9 @@
             MemberCount = searchResultClanJson.members;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the SearchResultClan class.
+        /// </summary>
         public SearchResultClan() { }
     }
 }

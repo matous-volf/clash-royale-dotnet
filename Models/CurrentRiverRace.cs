@@ -55,6 +55,9 @@
             Clans = ClashRoyale.GetObjectsFromJson<RiverRaceClan>(json.clans);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the CurrentRiverRace class.
+        /// </summary>
         public CurrentRiverRace() { }
     }
 }

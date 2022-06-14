@@ -30,6 +30,9 @@
             CountryCode = json.countryCode;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the Location class.
+        /// </summary>
         public Location() { }
     }
 }

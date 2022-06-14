@@ -20,6 +20,9 @@
             PeriodIndex = json.periodIndex;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the RiverRacePeriodLog class.
+        /// </summary>
         public RiverRacePeriodLog() { }
     }
 }
