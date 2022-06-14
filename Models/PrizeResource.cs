@@ -9,7 +9,7 @@
         /// </summary>
         Gold,
         /// <summary>
-        /// Specifies the unknown resource.
+        /// Specifies an unknown resource.
         /// </summary>
         Unknown
     };

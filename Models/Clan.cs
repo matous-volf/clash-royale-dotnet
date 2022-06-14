@@ -28,7 +28,7 @@
         /// <summary>
         /// The Clan's type.
         /// </summary>
-        public string Type;
+        public ClanType Type;
         /// <summary>
         /// The Clan's required trophies count.
         /// </summary>
@@ -69,7 +69,7 @@
             Description = clanJson.description;
             BadgeID = clanJson.badgeId;
             Location = new Location(clanJson.location);
-            Type = clanJson.type;
+            Type = ClashRoyale.GetEnumFromJson<ClanType>(clanJson.type);
             RequiredTrophies = clanJson.requiredTrophies;
             ClanScore = clanJson.clanScore;
             ClanWarTrophies = clanJson.clanWarTrophies;

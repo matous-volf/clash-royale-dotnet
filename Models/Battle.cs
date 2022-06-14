@@ -8,7 +8,7 @@
         /// <summary>
         /// The Battle's type.
         /// </summary>
-        public string Type;
+        public BattleType Type;
         /// <summary>
         /// The Battle's Game mode.
         /// </summary>
@@ -16,7 +16,7 @@
         /// <summary>
         /// The Battle's Deck selection.
         /// </summary>
-        public string DeckSelection;
+        public BattleDeckSelection DeckSelection;
         /// <summary>
         /// The Arena the Battle was played in.
         /// </summary>
@@ -80,9 +80,9 @@
 
         internal Battle(dynamic json)
         {
-            Type = json.type;
+            Type = ClashRoyale.GetEnumFromJson<BattleType>(json.type);
             GameMode = new GameMode(json.gameMode);
-            DeckSelection = json.deckSelection;
+            DeckSelection = ClashRoyale.GetEnumFromJson<BattleDeckSelection>(json.deckSelection);
             Arena = new Arena(json.arena);
             Time = ClashRoyale.GetDateTimeFromJson(json.battleTime);
             Team = ClashRoyale.GetObjectsFromJson<BattlePlayer>(json.team);

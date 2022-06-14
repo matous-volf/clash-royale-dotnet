@@ -8,11 +8,11 @@
         /// <summary>
         /// The state of the River race.
         /// </summary>
-        public string State;
+        public RiverRaceState State;
         /// <summary>
         /// The River race's Period type.
         /// </summary>
-        public string PeriodType;
+        public RiverRacePeriodType PeriodType;
         /// <summary>
         /// The River race's Period index.
         /// </summary>
@@ -44,8 +44,8 @@
 
         internal CurrentRiverRace(dynamic json)
         {
-            State = json.state;
-            PeriodType = json.periodType;
+            State = ClashRoyale.GetEnumFromJson<RiverRaceState>(json.state);
+            PeriodType = ClashRoyale.GetEnumFromJson<RiverRacePeriodType>(json.periodType);
             PeriodIndex = json.periodIndex;
             PeriodLogs = json.periodLogs is not null ? ClashRoyale.GetObjectsFromJson<RiverRacePeriodLog>(json.periodLogs) : null;
             CollectionEndTime = ClashRoyale.GetDateTimeFromJson(json.collectionEndTime);
