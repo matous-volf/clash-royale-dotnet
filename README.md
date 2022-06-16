@@ -12,20 +12,22 @@ An unofficial .NET wrapper for Supercell's [Clash Royale API](https://developer.
 ## Usage
 After [installing](#installation), you'll be able to reference the classes and methods.
 
-In order to use the API, you need to obtain an [API key](https://developer.clashroyale.com/#/getting-started) and pass it to the `ClashRoyale` class using the `Key` property:
-```
-ClashRoyale.Key = "<your_key>";
+In order to use the API, you need to create an instance of the `ClashRoyale` class. In the constructor, pass an [API key](https://developer.clashroyale.com/#/getting-started):
+```cs
+ClashRoyale clashRoyale = new(key:"<your_key>");
 ```
 
-Optionally, you can choose to use [RoyaleAPI proxy servers](https://docs.royaleapi.com/#/proxy) using the `UseProxyServers` property:
+Optionally, you can choose to use [RoyaleAPI proxy servers](https://docs.royaleapi.com/#/proxy) with the second parameter:
+```cs
+ClashRoyale clashRoyale = new(key:"<your_key>", useProxyServers:true);
 ```
-ClashRoyale.UseProxyServers = true;
-```
+
+Both of these can be changed later by setting the `Key` and `UseProxyServers` properties.
 
 ### Player information
 To get information about a player, use the `GetPlayerByTag` method:
 ```cs
-Player player = ClashRoyale.GetPlayerByTag(tag:"#2PRQQVR88");
+Player player = clashRoyale.GetPlayerByTag(tag:"#2PRQQVR88");
 ```
 *Although in the official API it is divided into different requests, this information also contains the player's Battle log and upcoming Chests.*
 
@@ -34,26 +36,26 @@ Player player = ClashRoyale.GetPlayerByTag(tag:"#2PRQQVR88");
 #### By Tag
 To get information about a particular Clan, use the `GetClanByTag` method:
 ```cs
-Clan clan = ClashRoyale.GetClanByTag(tag: "#L2QCY2VC");
+Clan clan = clashRoyale.GetClanByTag(tag: "#L2QCY2VC");
 ```
 *Although in the official API it is divided into different requests, this information also contains the Clan's current and previous River races.*
 
 #### By properties
 To get information about Clans searched by their properties, use the `GetClansBySearch` method:
 ```cs
-SearchResultClan[] clans = ClashRoyale.GetClansBySearch(name: "HMaK", locationID: 57000070, minMembers: 35, maxMembers: 45, minScore: 30000);
+SearchResultClan[] clans = clashRoyale.GetClansBySearch(name: "HMaK", locationID: 57000070, minMembers: 35, maxMembers: 45, minScore: 30000);
 ```
 
 ### Card information
 To get information about all Cards, use the `GetAllCards` method:
 ```cs
-Card[] cards = ClashRoyale.GetAllCards();
+Card[] cards = clashRoyale.GetAllCards();
 ```
 
 ### Challenges information
 To get information about currently known Challenges, use the `GetCurrentChallenges` method:
 ```cs
-ChallengeChain[] challengeChains = ClashRoyale.GetCurrentChallenges();
+ChallengeChain[] challengeChains = clashRoyale.GetCurrentChallenges();
 ```
 
 ## API coverage
