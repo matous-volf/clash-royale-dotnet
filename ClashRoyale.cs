@@ -7,13 +7,13 @@ namespace ClashRoyaleAPI
     /// <summary>
     /// Provides access to all the Clash Royale API methods and settings.
     /// </summary>
-    public static class ClashRoyale
+    public class ClashRoyale
     {
-        private static string key;
+        private string key;
         /// <summary>
         /// Gets or sets the API key used for obtaining the Clash Royale information.
         /// </summary>
-        public static string Key
+        public string Key
         {
             get => key;
             set
@@ -39,17 +39,17 @@ namespace ClashRoyaleAPI
         private const string cardsBaseURLProxy = baseURLProxy + "cards";
         private const string challengesBaseURLProxy = baseURLProxy + "challenges";
 
-        private static string playersBaseURL = playersBaseURLStandard;
-        private static string clansBaseURL = clansBaseURLStandard;
-        private static string clansSearchBaseURL = clansSearchBaseURLStandard;
-        private static string cardsBaseURL = cardsBaseURLStandard;
-        private static string challengesBaseURL = challengesBaseURLStandard;
+        private string playersBaseURL = playersBaseURLStandard;
+        private string clansBaseURL = clansBaseURLStandard;
+        private string clansSearchBaseURL = clansSearchBaseURLStandard;
+        private string cardsBaseURL = cardsBaseURLStandard;
+        private string challengesBaseURL = challengesBaseURLStandard;
 
-        private static bool useProxyServers = false;
+        private bool useProxyServers = false;
         /// <summary>
         /// Gets or sets whether to use <see href="https://docs.royaleapi.com/#/proxy">RoyaleAPI proxy servers</see> when obtaining the Clash Royale information.
         /// </summary>
-        public static bool UseProxyServers
+        public bool UseProxyServers
         {
             get
             {
@@ -78,9 +78,18 @@ namespace ClashRoyaleAPI
             }
         }
 
-        private static readonly HttpClient httpClient = new();
+        /// <summary>
+        /// Initializes a new instance of the ClashRoyale class with a specified API key. A parameter specifies wheter to use <see href="https://docs.royaleapi.com/#/proxy">RoyaleAPI proxy servers</see>.
+        /// </summary>
+        public ClashRoyale(string key, bool useProxyServers = false)
+        {
+            Key = key;
+            UseProxyServers = useProxyServers;
+        }
 
-        private static string GetData(string url)
+        private readonly HttpClient httpClient = new();
+
+        private string GetData(string url)
         {
             HttpResponseMessage response = httpClient.Send(new HttpRequestMessage(HttpMethod.Get, url));
             StreamReader streamReader = new(response.Content.ReadAsStream());
@@ -156,7 +165,7 @@ namespace ClashRoyaleAPI
         /// <returns>
         /// The player object, or null if a player with the Tag does not exist.
         /// </returns>
-        public static Player GetPlayerByTag(string tag)
+        public Player GetPlayerByTag(string tag)
         {
             if (tag.StartsWith("#"))
             {
@@ -201,7 +210,7 @@ namespace ClashRoyaleAPI
         /// <returns>
         /// The Clan object, or null if a Clan with the tag does not exist.
         /// </returns>
-        public static Clan GetClanByTag(string tag)
+        public Clan GetClanByTag(string tag)
         {
             if (tag.StartsWith("#"))
             {
@@ -253,7 +262,7 @@ namespace ClashRoyaleAPI
         /// <returns>
         /// An array of the Clan objects found, or null if no Clans with the properties exist.
         /// </returns>
-        public static SearchResultClan[] GetClansBySearch(string name = null, int locationID = 0, int minMembers = 0, int maxMembers = 50, int minScore = 0)
+        public SearchResultClan[] GetClansBySearch(string name = null, int locationID = 0, int minMembers = 0, int maxMembers = 50, int minScore = 0)
         {
             string url = clansSearchBaseURL;
 
@@ -330,7 +339,7 @@ namespace ClashRoyaleAPI
         /// <returns>
         /// An array of the Card objects.
         /// </returns>
-        public static Card[] GetAllCards()
+        public Card[] GetAllCards()
         {
             string url = cardsBaseURL;
             string cardsData = GetData(url);
@@ -346,7 +355,7 @@ namespace ClashRoyaleAPI
         /// <returns>
         /// An array of the challenge objects.
         /// </returns>
-        public static ChallengeChain[] GetCurrentChallenges()
+        public ChallengeChain[] GetCurrentChallenges()
         {
             string url;
 
