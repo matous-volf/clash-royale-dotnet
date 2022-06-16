@@ -80,7 +80,14 @@ namespace ClashRoyaleAPI
 
         /// <summary>
         /// Initializes a new instance of the ClashRoyale class with a specified API key. A parameter specifies wheter to use <see href="https://docs.royaleapi.com/#/proxy">RoyaleAPI proxy servers</see>.
+        /// 
         /// </summary>
+        /// <param name="key">
+        /// The API key used for obtaining the Clash Royale information.
+        /// </param>
+        /// <param name="useProxyServers">
+        /// Whether to use <see href="https://docs.royaleapi.com/#/proxy">RoyaleAPI proxy servers</see> when obtaining the Clash Royale information.
+        /// </param>
         public ClashRoyale(string key, bool useProxyServers = false)
         {
             Key = key;
